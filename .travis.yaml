@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 services:
   - docker
 
@@ -7,3 +8,4 @@ before_install:
 
 script:
   - docker run -e CI=true cgiardina6d3947/docker-react-cg npm run test
+  
