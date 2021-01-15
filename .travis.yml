@@ -10,3 +10,15 @@ before_install:
 
 script:
   - docker run -e CI=true cgiardina6d3947/docker-react-cg npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react-cg"
+  env: "DockerReactCg-env" 
+  bucket_name: "elasticbeanstalk-us-east-1-353663474754"
+  bucket_path: "docker-react-cg"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
